@@ -1,68 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://unpkg.com/fengari-web"></script> <!-- Interpretador Lua -->
-  <style>
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    #container {
-      height: 80%;
-      width: 100%;
-    }
-    #popup {
-      position: fixed;
-      bottom: 10%;
-      left: 50%;
-      transform: translate(-50%, 0);
-      background-color: #222;
-      color: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      z-index: 9999;
-      display: none;
-      max-width: 80%;
-      word-wrap: break-word;
-      text-align: center;
-      border: 1px solid #fff;
-    }
-    #buttons {
-      text-align: center;
-      padding: 10px;
-    }
-    button {
-      padding: 10px 15px;
-      font-size: 16px;
-      background-color: #444;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin: 5px;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua Monaco Editor</title>
+    <script src="https://unpkg.com/fengari-web"></script>
+    <script src="./vs/loader.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        #container {
+            height: 80%;
+            width: 100%;
+        }
+        #buttons {
+            text-align: center;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #666;
+        }
+        #popup {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background-color: #222;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 9999;
+            display: none;
+            max-width: 80%;
+            word-wrap: break-word;
+            text-align: center;
+            border: 1px solid #fff;
+        }
+    </style>
 </head>
 <body>
-  <div id="container"></div>
-  <div id="popup"></div>
-  <div id="buttons">
-    <button id="executeBtn">Executar</button>
-  </div>
+    <div id="container"></div>
+    <div id="popup"></div>
+    <div id="buttons">
+        <button id="executeBtn">Executar Lua</button>
+    </div>
 
-  <script src="./vs/loader.js" type="text/javascript"></script>
-  <script src="script.js"></script> <!-- Arquivo JS separado -->
+    <script src="script.js"></script>
 </body>
 </html>
