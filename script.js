@@ -33,7 +33,7 @@ function showPopup(message) {
 function runLuaCode() {
     var code = getValue();
     try {
-        let L = fengari.L;
+        let L = fengari.LUA_INIT();
         fengari.load(code)();
         let output = fengari.tojsstring(fengari.lua_tojsstring(L, -1));
         showPopup(output);
