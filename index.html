@@ -20,72 +20,52 @@
 </head>
 <body>
     <div id="container"></div>
+
     <script src="./vs/loader.js" type="text/javascript"></script>
     <script type="text/javascript">
         var editor;
+
         require(["./vs/editor/editor.main"], function () {
+            // Defina um tema customizado para o Monaco
             monaco.editor.defineTheme('myCustomTheme', {
-
-                base: 'vs-dark', // or 'vs' for light theme
-
+                base: 'vs-dark', // Tema escuro, pode mudar para 'vs' para tema claro
                 inherit: true,
-
                 rules: [],
-
                 colors: {
-
-                    'editor.background': '#000000', // Use hex color for RGB(15, 15, 22)
-
-                    'editor.foreground': '#FFFFFF' // Adjust as needed for foreground color
-
+                    'editor.background': '#000000', // Cor do fundo
+                    'editor.foreground': '#FFFFFF'  // Cor do texto
                 }
-
             });
 
+            // Tenta carregar o conteúdo salvo do localStorage
+            let savedContent = localStorage.getItem("monacoEditorValue");
 
-
-            // Create the editor with the custom theme
-
+            // Cria o editor com o conteúdo salvo ou vazio
             editor = monaco.editor.create(document.getElementById("container"), {
-
-                value: '',
-
+                value: savedContent || '',  // Se não houver conteúdo salvo, inicia com vazio
                 language: "lua",
-
-                theme: "myCustomTheme", // Use the custom theme here <
-
+                theme: "myCustomTheme", // Usando o tema customizado
                 dragAndDrop: true,
-
                 links: true,
-
                 minimap: {
-
                     enabled: true,
-
                 },
-
                 showFoldingControls: "always",
-
                 smoothScrolling: true,
-
             });
 
+            editor.focus();
+            editor.onDidChangeModelContent(function () {
+                localStorage.setItem("monacoEditorValue", editor.getValue());
+            });
         });
 
-
-
         function getValue() {
-
             return editor.getValue();
-
         }
 
-
-
         function setValue(value) {
-
             editor.setValue(value);
-
         }
     </script>
 </body>
