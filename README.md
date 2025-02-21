@@ -2,7 +2,7 @@
 
 monaco editor is available at:
 
-**https://rafa12763.github.io/Monaco-Editor/**
+**https://rafa12763.github.io/Monaco-Editor**
 
 # About Monaco Editor:
 
